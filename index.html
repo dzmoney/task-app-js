@@ -24,7 +24,7 @@
       <div class="left-panel">
         <h2 class="today-left">⭐️ Today</h2>
         <div class="new-list-footer">
-          <div class="new-list-footer_button">+ New List</div>
+          <div class="new-list-footer_button" id="new-list-btn">+ New List</div>
         </div>
       </div>
       <!-- RIGHT PANEL -->
@@ -45,7 +45,7 @@
                 ></button>
               </div>
               <div class="modal-body">
-                <form>
+                <form id="form">
                   <div class="mb-3">
                     <label for="new-task-input" class="col-form-label"
                       >New Task:</label
@@ -77,6 +77,7 @@
         <div class="new-task-footer">
           <div
             class="new-task-footer_button"
+            id="new-task-btn"
             data-bs-toggle="modal"
             data-bs-target="#new-task-modal"
           >
