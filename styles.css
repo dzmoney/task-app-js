@@ -43,6 +43,7 @@ body {
   text-align: left;
   margin: 63px 40px;
   letter-spacing: 0.5px;
+  font-size: 1.6rem;
 }
 
 .new-list-footer {
@@ -60,6 +61,7 @@ body {
   display: flex;
   align-items: center;
   margin: 7px 0 0 10px;
+  cursor: pointer;
 }
 
 .new-list-footer_button p {
@@ -90,6 +92,7 @@ body {
   display: flex;
   align-items: center;
   margin: 7px 0 0 10px;
+  cursor: pointer;
 }
 
 .new-task-footer_button p {
