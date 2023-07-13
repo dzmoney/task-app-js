@@ -20,16 +20,68 @@
   </head>
   <body>
     <div class="app">
+      <!-- LEFT PANEL -->
       <div class="left-panel">
         <h2 class="today-left">⭐️ Today</h2>
         <div class="new-list-footer">
           <div class="new-list-footer_button">+ New List</div>
         </div>
       </div>
+      <!-- RIGHT PANEL -->
       <div class="right-panel">
-        <h1 class="title-right">Today</h1>
+        <h1 id="title-right">Today</h1>
+        <div id="tasks"></div>
+        <!-- MODAL -->
+        <div class="modal" tabindex="-1" id="new-task-modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Add New Task</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="new-task-input" class="col-form-label"
+                      >New Task:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="new-task-input"
+                    />
+                  </div>
+                </form>
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="new-task-footer">
-          <div class="new-task-footer_button">+ New Task</div>
+          <div
+            class="new-task-footer_button"
+            data-bs-toggle="modal"
+            data-bs-target="#new-task-modal"
+          >
+            + New Task
+          </div>
         </div>
       </div>
     </div>

@@ -68,7 +68,7 @@ body {
   color: var(--task-font-color);
 }
 
-.title-right {
+#title-right {
   color: var(--title-font-color);
   font-weight: 600;
   font-size: 2.5rem;
