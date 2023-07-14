@@ -4,6 +4,14 @@ let msg = document.getElementById("msg");
 let tasks = document.getElementById("tasks");
 let newTaskBtn = document.getElementById("new-task-btn");
 let saveTaskButton = document.getElementById("save-task-btn");
+let modalElement = document.getElementById("new-task-modal");
+
+// Disable form submission on enter key press
+form.addEventListener("keypress", (event) => {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+  }
+});
 
 // FORM VALIDATION
 form.addEventListener("submit", (event) => {
