@@ -31,6 +31,7 @@ let formValidation = () => {
     console.log("success");
     msg.textContent = "";
     handleInput();
+    newTaskInput.value = "";
   }
 };
 
