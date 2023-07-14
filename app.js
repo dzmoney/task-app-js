@@ -4,7 +4,9 @@ let msg = document.getElementById("msg");
 let tasks = document.getElementById("tasks");
 let newTaskBtn = document.getElementById("new-task-btn");
 let saveTaskButton = document.getElementById("save-task-btn");
-let modalElement = document.getElementById("new-task-modal");
+
+//
+// FORM VALIDATION
 
 // Disable form submission on enter key press
 form.addEventListener("keypress", (event) => {
@@ -13,13 +15,8 @@ form.addEventListener("keypress", (event) => {
   }
 });
 
-// FORM VALIDATION
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  formValidation();
-});
-
-saveTaskButton.addEventListener("click", (event) => {
   formValidation();
 });
 
@@ -31,10 +28,10 @@ let formValidation = () => {
     console.log("success");
     msg.textContent = "";
     handleInput();
-    newTaskInput.value = "";
   }
 };
 
+//
 // COLLECT DATA
 let data = [];
 
@@ -42,7 +39,20 @@ let handleInput = () => {
   let newTask = newTaskInput.value.trim();
   data.push(newTask);
 
+  // save user input to local storage so it persists on reload
   localStorage.setItem("data", JSON.stringify(data));
 
-  console.log(data);
+  // make Save changes button close the modal
+  saveTaskButton.setAttribute("data-bs-dismiss", "modal");
+  saveTaskButton.click();
+
+  (() => {
+    saveTaskButton.setAttribute("data-bs-dismiss", "");
+  })();
+
+  // reset input to empty
+  newTaskInput.value = "";
+
+  // reset the data array so it doesn't resubmit previous inputs
+  data = [];
 };
