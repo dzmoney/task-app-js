@@ -38,10 +38,18 @@ let data = [];
 let handleInput = () => {
   let newTask = newTaskInput.value.trim();
   data.push(newTask);
-
   // save user input to local storage so it persists on reload
   localStorage.setItem("data", JSON.stringify(data));
 
+  closeModal();
+
+  // reset input to empty
+  newTaskInput.value = "";
+  // reset the data array so it doesn't resubmit previous inputs
+  data = [];
+};
+
+let closeModal = () => {
   // make Save changes button close the modal
   saveTaskButton.setAttribute("data-bs-dismiss", "modal");
   saveTaskButton.click();
@@ -49,10 +57,4 @@ let handleInput = () => {
   (() => {
     saveTaskButton.setAttribute("data-bs-dismiss", "");
   })();
-
-  // reset input to empty
-  newTaskInput.value = "";
-
-  // reset the data array so it doesn't resubmit previous inputs
-  data = [];
 };
