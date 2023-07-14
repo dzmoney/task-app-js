@@ -22,5 +22,18 @@ let formValidation = () => {
   } else {
     console.log("success");
     msg.textContent = "";
+    handleInput();
   }
+};
+
+// COLLECT DATA
+let data = [];
+
+let handleInput = () => {
+  let newTask = newTaskInput.value.trim();
+  data.push(newTask);
+
+  localStorage.setItem("data", JSON.stringify(data));
+
+  console.log(data);
 };
