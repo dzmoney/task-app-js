@@ -2,6 +2,7 @@ let form = document.getElementById("form");
 let newTaskInput = document.getElementById("new-task-input");
 let msg = document.getElementById("msg");
 let tasks = document.getElementById("tasks");
+let taskList = document.getElementById("task-list");
 let newTaskBtn = document.getElementById("new-task-btn");
 let saveTaskButton = document.getElementById("save-task-btn");
 
@@ -57,4 +58,25 @@ let closeModal = () => {
   (() => {
     saveTaskButton.setAttribute("data-bs-dismiss", "");
   })();
+
+  createTask();
+};
+
+//
+// CREATE TASKS
+let createTask = () => {
+  taskList.innerHTML = "";
+
+  // retrieve data from local storage
+  let savedData = localStorage.getItem("data");
+  console.log(savedData);
+  if (savedData) {
+    let task = savedData.trim();
+
+    // Create HTML elements for each task and append them to the tasks div
+    let taskElement = document.createElement("li");
+    taskElement.classList.add("task");
+    taskElement.textContent = task;
+    taskList.appendChild(taskElement);
+  }
 };
