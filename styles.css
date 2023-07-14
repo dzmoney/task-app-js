@@ -98,3 +98,7 @@ body {
 .new-task-footer_button p {
   color: var(--task-font-color);
 }
+
+#msg {
+  color: red;
+}
