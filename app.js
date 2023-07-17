@@ -43,6 +43,7 @@ let handleInput = () => {
   localStorage.setItem("data", JSON.stringify(data));
 
   closeModal();
+  createTask();
 
   // reset input to empty
   newTaskInput.value = "";
@@ -58,15 +59,11 @@ let closeModal = () => {
   (() => {
     saveTaskButton.setAttribute("data-bs-dismiss", "");
   })();
-
-  createTask();
 };
 
 //
 // CREATE TASKS
 let createTask = () => {
-  // taskList.innerHTML = "";
-
   // retrieve data from local storage
   let savedData = localStorage.getItem("data");
   if (savedData) {
