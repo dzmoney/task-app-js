@@ -113,10 +113,19 @@ body {
   margin-left: 7px;
 }
 
+.check-icon {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
 .edit-icon {
   margin-left: 30px;
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 .delete-icon {
   margin-left: 2px;
+  cursor: pointer;
+  opacity: 0.6;
 }
