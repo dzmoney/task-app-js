@@ -65,7 +65,7 @@ let closeModal = () => {
 //
 // CREATE TASKS
 let createTask = () => {
-  taskList.innerHTML = "";
+  // taskList.innerHTML = "";
 
   // retrieve data from local storage
   let savedData = localStorage.getItem("data");
