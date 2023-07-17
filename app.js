@@ -69,14 +69,34 @@ let createTask = () => {
 
   // retrieve data from local storage
   let savedData = localStorage.getItem("data");
-  console.log(savedData);
   if (savedData) {
     let task = JSON.parse(savedData);
 
-    // Create HTML elements for each task and append them to the tasks div
+    // Create HTML elements for task & icons and append
     let taskElement = document.createElement("li");
     taskElement.classList.add("task");
-    taskElement.textContent = task;
+
+    let checkIcon = document.createElement("ion-icon");
+    checkIcon.classList.add("check-icon");
+    checkIcon.setAttribute("name", "square-outline");
+
+    let taskData = document.createElement("span");
+    taskData.classList.add("task-display-data");
+    taskData.textContent = task;
+
+    let editIcon = document.createElement("ion-icon");
+    editIcon.classList.add("edit-icon");
+    editIcon.setAttribute("name", "create-outline");
+
+    let deleteIcon = document.createElement("ion-icon");
+    deleteIcon.classList.add("delete-icon");
+    deleteIcon.setAttribute("name", "trash-outline");
+
+    taskElement.appendChild(checkIcon);
+    taskElement.appendChild(taskData);
+    taskElement.appendChild(editIcon);
+    taskElement.appendChild(deleteIcon);
+
     taskList.appendChild(taskElement);
   }
 };
