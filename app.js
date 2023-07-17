@@ -34,11 +34,11 @@ let formValidation = () => {
 
 //
 // COLLECT DATA
-let data = [];
+let data = "";
 
 let handleInput = () => {
   let newTask = newTaskInput.value.trim();
-  data.push(newTask);
+  data = newTask;
   // save user input to local storage so it persists on reload
   localStorage.setItem("data", JSON.stringify(data));
 
@@ -47,7 +47,7 @@ let handleInput = () => {
   // reset input to empty
   newTaskInput.value = "";
   // reset the data array so it doesn't resubmit previous inputs
-  data = [];
+  data = "";
 };
 
 let closeModal = () => {
@@ -71,7 +71,7 @@ let createTask = () => {
   let savedData = localStorage.getItem("data");
   console.log(savedData);
   if (savedData) {
-    let task = savedData.trim();
+    let task = JSON.parse(savedData);
 
     // Create HTML elements for each task and append them to the tasks div
     let taskElement = document.createElement("li");
