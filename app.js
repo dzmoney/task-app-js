@@ -113,6 +113,10 @@ let addTaskEventListeners = (
   checkboxIcon.addEventListener("click", () => {
     toggleTaskComplete(taskElement);
   });
+
+  deleteIcon.addEventListener("click", () => {
+    deleteTask(taskElement);
+  });
 };
 
 let toggleTaskComplete = (taskElement) => {
@@ -124,10 +128,17 @@ let toggleTaskComplete = (taskElement) => {
     taskData.style.textDecoration = "none";
     taskData.style.opacity = "1";
     taskElement.setAttribute("task-completed", "false");
+    saveData();
   } else {
     checkboxIcon.setAttribute("name", "checkbox-outline");
     taskData.style.textDecoration = "line-through";
     taskData.style.opacity = "0.6";
     taskElement.setAttribute("task-completed", "true");
+    saveData();
   }
+};
+
+let deleteTask = (taskElement) => {
+  taskElement.remove();
+  saveData();
 };
