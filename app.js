@@ -39,9 +39,8 @@ let data = "";
 let handleInput = () => {
   let newTask = newTaskInput.value.trim();
   data = newTask;
-  // save user input to local storage so it persists on reload
-  localStorage.setItem("data", JSON.stringify(data));
 
+  saveData();
   closeModal();
   createTask();
 
@@ -59,6 +58,10 @@ let closeModal = () => {
   (() => {
     saveTaskButton.setAttribute("data-bs-dismiss", "");
   })();
+};
+
+let saveData = () => {
+  localStorage.setItem("data", JSON.stringify(data));
 };
 
 //
