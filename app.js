@@ -72,10 +72,11 @@ let createTask = () => {
     // Create HTML elements for task & icons and append
     let taskElement = document.createElement("li");
     taskElement.classList.add("task");
+    taskElement.setAttribute("task-completed", "false");
 
-    let checkIcon = document.createElement("ion-icon");
-    checkIcon.classList.add("check-icon");
-    checkIcon.setAttribute("name", "square-outline");
+    let checkboxIcon = document.createElement("ion-icon");
+    checkboxIcon.classList.add("checkbox-icon");
+    checkboxIcon.setAttribute("name", "square-outline");
 
     let taskData = document.createElement("span");
     taskData.classList.add("task-display-data");
@@ -89,11 +90,41 @@ let createTask = () => {
     deleteIcon.classList.add("delete-icon");
     deleteIcon.setAttribute("name", "trash-outline");
 
-    taskElement.appendChild(checkIcon);
+    taskElement.appendChild(checkboxIcon);
     taskElement.appendChild(taskData);
     taskElement.appendChild(editIcon);
     taskElement.appendChild(deleteIcon);
 
+    addTaskEventListeners(taskElement, checkboxIcon, editIcon, deleteIcon);
+
     taskList.appendChild(taskElement);
+  }
+};
+
+let addTaskEventListeners = (
+  taskElement,
+  checkboxIcon,
+  editIcon,
+  deleteIcon
+) => {
+  checkboxIcon.addEventListener("click", () => {
+    toggleTaskComplete(taskElement);
+  });
+};
+
+let toggleTaskComplete = (taskElement) => {
+  let checkboxIcon = taskElement.querySelector(".checkbox-icon");
+  let taskData = taskElement.querySelector(".task-display-data");
+
+  if (taskElement.getAttribute("task-completed") === "true") {
+    checkboxIcon.setAttribute("name", "square-outline");
+    taskData.style.textDecoration = "none";
+    taskData.style.opacity = "1";
+    taskElement.setAttribute("task-completed", "false");
+  } else {
+    checkboxIcon.setAttribute("name", "checkbox-outline");
+    taskData.style.textDecoration = "line-through";
+    taskData.style.opacity = "0.6";
+    taskElement.setAttribute("task-completed", "true");
   }
 };
